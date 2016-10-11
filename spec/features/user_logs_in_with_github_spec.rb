@@ -6,12 +6,13 @@ RSpec.feature "User can log in with Github" do
 
     OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
       provider: 'github',
-      extra: {
-        repos_url: "http:://github/Sauron"
-      },
-      info: {
-        uid: "666"
-      }
+        info: {
+          name: "Sauron",
+          nickname: "Morgoth"
+        },
+        credentials: {
+          token: "theonering"
+        }
       })
   end
 
@@ -20,7 +21,7 @@ RSpec.feature "User can log in with Github" do
     expect(page).to have_content('Login with Github')
     click_link 'Login with Github'
     expect(current_path).to eq('/')
-    expect(page).to have_content('Hello, Github User') #need to adjust mock auth to pass other params
+    expect(page).to have_content('Hello, Sauron') #need to adjust mock auth to pass other params
     expect(page).to have_content('Logout')
   end
 end
