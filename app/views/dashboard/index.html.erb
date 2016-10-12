@@ -1,0 +1,12 @@
+<% if current_user %>
+  Hello, <%= current_user.name %> ... aka <%= current_user.nickname %> //
+  <%= link_to "Logout", logout_path, method: :delete %>
+<% else %>
+  <%= link_to "Login with Github", github_login_path %>
+<% end %><br />
+
+Followers: <%= "#{@user_info[:followers]}" %> -
+Following: <%= "#{@user_info[:following]}" %> - 
+<%= link_to "Organizations", "#{@user_info[:organizations_url]}" %> -
+<%= link_to "Repos", "#{@user_info[:repos_url]}" %><br />
+<img src="<%= @user_info[:avatar_url] %>" />

@@ -16,11 +16,11 @@ RSpec.feature "User can log in with Github" do
       })
   end
 
-  scenario "User successfully logs in" do
+   scenario "User successfully logs in" do
     visit '/'
     expect(page).to have_content('Login with Github')
     click_link 'Login with Github'
-    expect(current_path).to eq('/')
+    expect(current_path).to eq('/dashboard')
     expect(page).to have_content('Hello, Sauron') #need to adjust mock auth to pass other params
     expect(page).to have_content('Logout')
   end
