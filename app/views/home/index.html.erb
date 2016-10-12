@@ -4,8 +4,3 @@
 <% else %>
   <%= link_to "Login with Github", github_login_path %>
 <% end %>
-<br />
-
-<%= @user_info[:name] %> - <%= link_to "Followers", "#{@user_info[:followers_url]}" %> -
-<%= link_to "Following", "#{@user_info[:following_url]}" %> - <%= link_to "Starred", "#{@user_info[:starred_url]}" %><br />
-<img src="<%= @user_info[:avatar_url] %>" />
