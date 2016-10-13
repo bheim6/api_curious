@@ -3,12 +3,27 @@
   <head>
     <title>ApiCurious</title>
     <%= csrf_meta_tags %>
+    <link href='/css/bootstrap.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/application.css">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div class='container'>
+    <div class='col-md-12 navbar navbar-default navbar-static-top'>
+      <a href='/' class='navbar-brand' href='#'>
+        <img alt="Brand" src="http://robertcedwards.github.io/gh-pages-theme/assets/images/icon-github.png"></a>
+      <ul class='nav navbar-nav navbar-right'>
+        <li><a href="/">Repos</a></li>
+        <li><a href="/">Gist?</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class='container'>
     <%= yield %>
+  </div>
   </body>
 </html>
