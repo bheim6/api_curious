@@ -1,21 +1,20 @@
-<div class='row'>
-  <div class='col-md-6'>
-    <% if current_user %>
-      Hello, <%= current_user.name %> ... aka <%= current_user.nickname %> //
-      <%= link_to "Logout", logout_path, method: :delete %>
-    <% else %>
-      <%= link_to "Login with Github", github_login_path %>
-    <% end %><br />
-
-    Followers: <%= "#{@user_info[:followers]}" %> -
-    Following: <%= "#{@user_info[:following]}" %> -
-    <%= link_to "Organizations", "#{@user_info[:organizations_url]}" %> -
-    <%= link_to "Repos", "#{@user_info[:repos_url]}" %><br />
+<div class='row text-center'>
+  <div class='col-md-3'>
+    <div class='jumbotron'>
+      <img class="align-center" src="<%= @user_info[:avatar_url] %>">
+      <%= current_user.nickname %>
+    </div>
+  </div>
+  <div class='col-md-3'>
+    <div class='jumbotron'>
+      Followers: <%= "#{@user_info[:followers]}" %>
+      Following: <%= "#{@user_info[:following]}" %><br />
+    </div>
   </div>
   <div class='col-md-6'>
     <div class='jumbotron'>
-      <img src="<%= @user_info[:avatar_url] %>" />
+      <%= link_to "All Repos", dashboard_repos_path %> -
+      <%= link_to "Starred Repos", dashboard_starred_path %>
     </div>
   </div>
-
 </div>
