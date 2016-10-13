@@ -3,12 +3,34 @@
   <head>
     <title>ApiCurious</title>
     <%= csrf_meta_tags %>
-
+    <link href='/css/bootstrap.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/application.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <script src="js/bootstrap.min.js"></script>
+    <div class='container'>
+    <div class='col-md-12 navbar navbar-default navbar-static-top'>
+      <a href='/' class='navbar-brand' href='#'>
+        <img alt="Brand" src="http://robertcedwards.github.io/gh-pages-theme/assets/images/icon-github.png"></a>
+        <ul class='nav navbar-nav navbar-left'>
+            <% if current_user %>
+            <li> <%=  link_to "Hello, #{current_user.name}", dashboard_path %></li>
+            <li><%= link_to "Logout", logout_path, method: :delete %></li>
+            <% else %>
+            <li><%= link_to "Login with Github", github_login_path %></li>
+            <% end %>
+        </ul>
+      <ul class='nav navbar-nav navbar-right'>
+        <li><a href="/">HitGub</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class='container'>
     <%= yield %>
+  </div>
   </body>
 </html>

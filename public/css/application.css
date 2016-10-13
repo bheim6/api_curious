@@ -1,0 +1,24 @@
+.navbar-default {
+
+}
+
+.navbar-brand {
+  /*background-color: #F8F8FF*/
+}
+
+.navbar-right a {
+  /*background-color: #F8F8FF*/
+}
+
+.btn-primary {
+  background-color: #68228B
+}
+
+.image-rounded {
+  background-color: #515151
+}
+
+.jumbotron img {
+  width:175px;
+    height: 175px;
+}

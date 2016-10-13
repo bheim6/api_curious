@@ -1,0 +1,10 @@
+<div class="row text-center">
+  <div class="col-md-4">
+  <ol>
+    <h4>Repos For <%= current_user.nickname %></h4>
+    <% @user_repos.each do |repo| %>
+      <li><%= link_to "#{repo[:name]}", "#{repo[:html_url]}" %></li>
+    <% end %>
+  </ol>
+</div>
+</div>

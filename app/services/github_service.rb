@@ -22,7 +22,13 @@ class GithubService
     JSON.parse(response.body, symbolize_names: true)
   end
 
-  def self.repos
+  def repos
     response = conn.get "/user/repos"
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def starred
+    response = conn.get "/user/starred"
+    JSON.parse(response.body, symbolize_names: true)
   end
 end
