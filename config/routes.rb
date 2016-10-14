@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#index'
   get '/dashboard/repos', to: 'dashboard#repos'
   get '/dashboard/starred', to: 'dashboard#starred'
+  get '/dashboard/recent_activity', to: 'dashboard#recent_activity'
 end

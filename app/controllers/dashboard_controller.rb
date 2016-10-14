@@ -4,10 +4,14 @@ class DashboardController < ApplicationController
   end
 
   def repos
-    @user_repos = GithubUser.all_repos(current_user)  
+    @user_repos = GithubUser.all_repos(current_user)
   end
 
   def starred
     @starred_repos = GithubUser.starred_repos(current_user)
+  end
+
+  def recent_activity
+    @recent = GithubUser.recent_activity(current_user)
   end
 end
