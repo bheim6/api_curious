@@ -3,9 +3,9 @@
   <ol>
     <h4>Recent Activity For <%= current_user.nickname %></h4>
     <% @recent.each do |activity| %>
-      <li><%= link_to "#{activity[:repo][:name]}", "#{activity[:repo][:url]}" %>
-      <% if activity[:type] == "PushEvent" %>
-        <%= " - #{activity[:payload][:commits].first[:message]}" %></li>
+      <li><%= link_to activity.repo_name, activity.repo_url %>
+      <% if activity.type == "PushEvent" %>
+        - <%= activity.commit_message %></li>
       <% end %>
     <% end %>
   </ol>

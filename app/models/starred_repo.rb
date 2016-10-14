@@ -1,4 +1,4 @@
-class Repo
+class StarredRepo
   def initialize(attrs)
     @attrs = attrs
   end

@@ -35,13 +35,17 @@ class GithubUser
   end
 
   def self.starred_repos(current_user)
-    GithubService.new(current_user).starred
+    GithubService.new(current_user).starred.map do |raw_starred|
+      StarredRepo.new(raw_starred)
+    end
   end
 
   def self.recent_activity(current_user)
-    GithubService.new(current_user).recent
+    GithubService.new(current_user).recent.map do |raw_activity|
+      Activity.new(raw_activity)
+    end
   end
 
   private
-  attr_reader :attrs
+    attr_reader :attrs
 end
