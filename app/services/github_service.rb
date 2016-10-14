@@ -1,11 +1,4 @@
 class GithubService
-  # def self.legislators(filter)
-  #   response = conn.get "/legislators", filter
-  #   JSON.parse(response.body, symbolize_names: true)[:results]
-  # end
-  # def self.current_user
-  #   current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-  # end
   def initialize(current_user)
     @current_user = current_user
   end
@@ -29,6 +22,11 @@ class GithubService
 
   def starred
     response = conn.get "/user/starred"
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def recent
+    response = conn.get "/users/#{@current_user.nickname}/events"
     JSON.parse(response.body, symbolize_names: true)
   end
 end

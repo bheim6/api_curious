@@ -1,0 +1,13 @@
+<div class="row text-center">
+  <div class="col-md-12">
+  <ol>
+    <h4>Recent Activity For <%= current_user.nickname %></h4>
+    <% @recent.each do |activity| %>
+      <li><%= link_to "#{activity[:repo][:name]}", "#{activity[:repo][:url]}" %>
+      <% if activity[:type] == "PushEvent" %>
+        <%= " - #{activity[:payload][:commits].first[:message]}" %></li>
+      <% end %>
+    <% end %>
+  </ol>
+</div>
+</div>

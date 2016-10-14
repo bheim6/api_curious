@@ -6,8 +6,8 @@ describe "Github User" do
       user = User.create(token: ENV['PERSONAL_TOKEN'])
       user_info = GithubUser.all_info(user)
 
-      expect(user_info[:name]).to eq("Brian Heim")
-      expect(user_info[:login]).to eq("bheim6")
+      expect(user_info.name).to eq("Brian Heim")
+      expect(user_info.login).to eq("bheim6")
     end
   end
 
@@ -20,12 +20,21 @@ describe "Github User" do
     end
   end
 
-  it "returns all repos for the user" do
+  it "returns all starred repos for the user" do
     VCR.use_cassette("github_user.starred_repos") do
       user = User.create(token: ENV['PERSONAL_TOKEN'])
-      user_repos = GithubUser.starred_repos(user)
+      starred = GithubUser.starred_repos(user)
 
-      expect(user_repos.count).to eq(4)
+      expect(starred.count).to eq(4)
+    end
+  end
+
+  it "returns recent_activity for the user" do
+    VCR.use_cassette("github_user.recent_activity") do
+      user = User.create(token: ENV['PERSONAL_TOKEN'], nickname: 'bheim6')
+      user_activity = GithubUser.recent_activity(user)
+
+      expect(user_activity.count).to eq(30)
     end
   end
 end

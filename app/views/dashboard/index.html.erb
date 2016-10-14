@@ -1,20 +1,21 @@
 <div class='row text-center'>
   <div class='col-md-3'>
     <div class='jumbotron'>
-      <img class="align-center" src="<%= @user_info[:avatar_url] %>">
+      <img class="align-center" src="<%= @user_info.avatar %>">
       <%= current_user.nickname %>
     </div>
   </div>
   <div class='col-md-3'>
     <div class='jumbotron'>
-      Followers: <%= "#{@user_info[:followers]}" %>
-      Following: <%= "#{@user_info[:following]}" %><br />
+      Followers: <%= @user_info.followers %>
+      Following: <%= @user_info.following %><br />
     </div>
   </div>
   <div class='col-md-6'>
     <div class='jumbotron'>
       <%= link_to "All Repos", dashboard_repos_path %> -
-      <%= link_to "Starred Repos", dashboard_starred_path %>
+      <%= link_to "Starred Repos", dashboard_starred_path %> -
+      <%= link_to "Recent Activity", dashboard_recent_activity_path %>
     </div>
   </div>
 </div>
